@@ -130,18 +130,13 @@ namespace WpfSharp.Controls
 
         public FontWeight HighlightFontWeight
         {
-            get
-            {
-                if ((FontWeight)GetValue(HighlightFontWeightProperty) == null)
-                    SetValue(HighlightFontWeightProperty, FontWeights.Normal);
-                return (FontWeight)GetValue(HighlightFontWeightProperty);
-            }
+            get { return (FontWeight)GetValue(HighlightFontWeightProperty); }
             set { SetValue(HighlightFontWeightProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for HighlightFontWeight.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty HighlightFontWeightProperty =
-            DependencyProperty.Register("HighlightFontWeight", typeof(FontWeight), typeof(SearchableTextBlock), new PropertyMetadata(new PropertyChangedCallback(HighlightableFontWeightChanged)));
+            DependencyProperty.Register("HighlightFontWeight", typeof(FontWeight), typeof(SearchableTextBlock), new PropertyMetadata(FontWeights.Normal, new PropertyChangedCallback(HighlightableFontWeightChanged)));
 
 
         public static void HighlightableFontWeightChanged(DependencyObject inDO, DependencyPropertyChangedEventArgs inArgs)
@@ -156,18 +151,13 @@ namespace WpfSharp.Controls
 
         public Brush HighlightForeground
         {
-            get
-            {
-                if ((Brush)GetValue(HighlightForegroundProperty) == null)
-                    SetValue(HighlightForegroundProperty, Brushes.Black);
-                return (Brush)GetValue(HighlightForegroundProperty);
-            }
+            get { return (Brush)GetValue(HighlightForegroundProperty); }
             set { SetValue(HighlightForegroundProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for HighlightForeground.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty HighlightForegroundProperty =
-            DependencyProperty.Register("HighlightForeground", typeof(Brush), typeof(SearchableTextBlock), new PropertyMetadata(new PropertyChangedCallback(HighlightableForegroundChanged)));
+            DependencyProperty.Register("HighlightForeground", typeof(Brush), typeof(SearchableTextBlock), new PropertyMetadata(Brushes.Black, new PropertyChangedCallback(HighlightableForegroundChanged)));
 
 
         public static void HighlightableForegroundChanged(DependencyObject inDO, DependencyPropertyChangedEventArgs inArgs)
@@ -182,18 +172,13 @@ namespace WpfSharp.Controls
 
         public Brush HighlightBackground
         {
-            get
-            {
-                if ((Brush)GetValue(HighlightBackgroundProperty) == null)
-                    SetValue(HighlightBackgroundProperty, Brushes.Yellow);
-                return (Brush)GetValue(HighlightBackgroundProperty);
-            }
+            get { return (Brush)GetValue(HighlightBackgroundProperty); }
             set { SetValue(HighlightBackgroundProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for HighlightBackground.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty HighlightBackgroundProperty =
-            DependencyProperty.Register("HighlightBackground", typeof(Brush), typeof(SearchableTextBlock), new PropertyMetadata(new PropertyChangedCallback(HighlightableBackgroundChanged)));
+            DependencyProperty.Register("HighlightBackground", typeof(Brush), typeof(SearchableTextBlock), new PropertyMetadata(Brushes.Yellow, new PropertyChangedCallback(HighlightableBackgroundChanged)));
 
 
         public static void HighlightableBackgroundChanged(DependencyObject inDO, DependencyPropertyChangedEventArgs inArgs)
@@ -213,7 +198,7 @@ namespace WpfSharp.Controls
         }
 
         public static readonly DependencyProperty RegexOptionsProperty =
-            DependencyProperty.Register("RegexOptions", typeof(RegexOptions), typeof(SearchableTextBlock), new PropertyMetadata(new PropertyChangedCallback(RegexOptionsChanged)));
+            DependencyProperty.Register("RegexOptions", typeof(RegexOptions), typeof(SearchableTextBlock), new PropertyMetadata(RegexOptions.IgnoreCase, new PropertyChangedCallback(RegexOptionsChanged)));
 
 
         public static void RegexOptionsChanged(DependencyObject inDO, DependencyPropertyChangedEventArgs inArgs)
