@@ -3,35 +3,131 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:win="clr-namespace:System.Windows;assembly=PresentationCore"
         xmlns:wpfsharp="clr-namespace:WpfSharp.Controls;assembly=WpfSharp.Controls"
         mc:Ignorable="d"
         Title="Searchable TextBlock" 
-        Height="250" Width="425"
+        Height="350" Width="425" WindowStartupLocation="CenterScreen"
         >
+    <Window.Resources>
+        <ObjectDataProvider MethodName="GetType"
+                            ObjectType="{x:Type sys:Type}" 
+                            x:Key="colorsType">
+            <ObjectDataProvider.MethodParameters>
+                <sys:String>System.Windows.Media.Colors, PresentationCore,
+                              Version=4.0.0.0, Culture=neutral,
+                              PublicKeyToken=31bf3856ad364e35</sys:String>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider ObjectInstance="{StaticResource colorsType}" MethodName="GetProperties" x:Key="colorProperties"/>
+        
+        <ObjectDataProvider MethodName="GetType"
+                            ObjectType="{x:Type sys:Type}" 
+                            x:Key="fontWeightType">
+            <ObjectDataProvider.MethodParameters>
+                <sys:String>System.Windows.FontWeights, PresentationCore,
+                              Version=4.0.0.0, Culture=neutral,
+                              PublicKeyToken=31bf3856ad364e35</sys:String>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider ObjectInstance="{StaticResource fontWeightType}" MethodName="GetProperties" x:Key="fontWeightProperties"/>
+    </Window.Resources>
+    
     <Grid>
         <Grid.Resources>
             <wpfsharp:StringToWordsConverter x:Key="StringToWordsConverter" />
+            <wpfsharp:RegOptionsSetConverter x:Key="RegOptionsSetConverter" />
         </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <wpfsharp:SearchableTextBlock Grid.Row="1" x:Name="HighlightTextBlock1" 
-                                   HighlightBackground="Yellow"  
-                                   HighlightableText="{Binding ElementName=TextString1, Path=Text, Mode=TwoWay}"
-                                   SearchWords="{Binding ElementName=CommaSeparatedWords, Path=Text, Converter={StaticResource ResourceKey=StringToWordsConverter}}"
-                                   RegexOptions="IgnoreCase"
-                                   />
-        <WrapPanel Grid.Row="2">
-            <Label Content="Search Words" />
-            <TextBox Name="CommaSeparatedWords" MinWidth="200" Text="test"/>
+        <CheckBox Grid.Row="0" 
+                  Content="Search Case sensitive"
+                  VerticalContentAlignment="Center"
+                  Margin="10,0"
+                  x:Name="chkCase" 
+                  IsChecked="False"/>
+        <WrapPanel Grid.Row="1" Margin="10,0">
+            <Label Content="SearchableTextBlock:" />
+            <wpfsharp:SearchableTextBlock x:Name="HighlightTextBlock1" 
+                                          Background="LightGray"
+                                          Width="310"
+                                          VerticalAlignment="Center"
+                                          HighlightBackground="{Binding ElementName=cbBackground,Path=SelectedValue, UpdateSourceTrigger=PropertyChanged}"  
+                                          HighlightForeground="{Binding ElementName=cbForeground,Path=SelectedValue, UpdateSourceTrigger=PropertyChanged}"
+                                          HighlightFontWeight="Normal"
+                                          HighlightableText="{Binding ElementName=TextString1, Path=Text, Mode=TwoWay}"
+                                          SearchWords="{Binding ElementName=CommaSeparatedWords, Path=Text, Converter={StaticResource ResourceKey=StringToWordsConverter}}"
+                                          RegexOptions="{Binding ElementName=chkCase, Path=IsChecked, Converter={StaticResource RegOptionsSetConverter}, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}"
+                                          />
         </WrapPanel>
-        <WrapPanel Grid.Row="3">
-            <Label Content="String" />
-            <TextBox Name="TextString1" MinWidth="200" Text="This is a string of test or example text."/>
+        <WrapPanel Grid.Row="2" Margin="10,5">
+            <Label Content="Search Words:" />
+            <TextBox Name="CommaSeparatedWords" MinWidth="200" Text="test" VerticalContentAlignment="Center" Margin="2"/>
         </WrapPanel>
+        <WrapPanel Grid.Row="3" Margin="10,5">
+            <Label Content="RegEx:" />
+            <TextBox Name="RegexTextBox" MinWidth="200" VerticalContentAlignment="Center" Margin="2" Text="{Binding ElementName=HighlightTextBlock1, Path=RegularExpression, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        </WrapPanel>
+        <WrapPanel Grid.Row="4" Margin="10,5">
+            <Label Content="Test String:" />
+            <TextBox Name="TextString1" MinWidth="200" Text="This is a string of test and Test2 or example text." VerticalContentAlignment="Center" Margin="20,0"/>
+        </WrapPanel>
+        <StackPanel Grid.Row="5" Margin="10,10">
+            <TextBlock Text="Highlight Background:" Margin="0 2"/>
+            <ComboBox x:Name="cbBackground" SelectedValuePath="Name" SelectedIndex="9" Width="200" HorizontalAlignment="Left" SelectedValue="{Binding ElementName=HighlightTextBlock1, Path=HighlightBackground, UpdateSourceTrigger=PropertyChanged}" 
+                      ItemsSource="{Binding Source={StaticResource colorProperties}}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Fill="{Binding Name}" Margin="2" Height="10" Width="100"/>
+                            <TextBlock Text="{Binding Name}" Margin="2"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Margin="10,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Highlight Foreground:" Margin="0 2"/>
+                    <ComboBox x:Name="cbForeground" SelectedValuePath="Name" SelectedIndex="4" Width="200" HorizontalAlignment="Left" SelectedValue="{Binding ElementName=HighlightTextBlock1, Path=HighlightForeground, UpdateSourceTrigger=PropertyChanged}" 
+                              ItemsSource="{Binding Source={StaticResource colorProperties}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Fill="{Binding Name}" Margin="2" Height="10" Width="100"/>
+                                    <TextBlock Text="{Binding Name}" Margin="2"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Highlight FontWeight:" Margin="0 2"/>
+                    <ComboBox x:Name="cbFontWeight" SelectedValuePath="Name" SelectedIndex="0" Width="130" HorizontalAlignment="Left" SelectedValue="{Binding ElementName=HighlightTextBlock1, Path=HighlightFontWeight, UpdateSourceTrigger=PropertyChanged}" 
+                              ItemsSource="{Binding Source={StaticResource fontWeightProperties}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock x:Name="tbFontWeight" Text="{Binding Name}" Margin="2" FontWeight="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
     </Grid>
 
 </Window>
