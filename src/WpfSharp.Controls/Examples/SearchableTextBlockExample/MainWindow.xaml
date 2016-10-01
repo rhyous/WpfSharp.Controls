@@ -63,7 +63,7 @@
                                           VerticalAlignment="Center"
                                           HighlightBackground="{Binding ElementName=cbBackground,Path=SelectedValue, UpdateSourceTrigger=PropertyChanged}"  
                                           HighlightForeground="{Binding ElementName=cbForeground,Path=SelectedValue, UpdateSourceTrigger=PropertyChanged}"
-                                          HighlightFontWeight="Normal"
+                                          HighlightFontWeight="{Binding ElementName=cbFontWeight,Path=SelectedValue, UpdateSourceTrigger=PropertyChanged}"
                                           HighlightableText="{Binding ElementName=TextString1, Path=Text, Mode=TwoWay}"
                                           SearchWords="{Binding ElementName=CommaSeparatedWords, Path=Text, Converter={StaticResource ResourceKey=StringToWordsConverter}}"
                                           RegexOptions="{Binding ElementName=chkCase, Path=IsChecked, Converter={StaticResource RegOptionsSetConverter}, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}"
@@ -83,8 +83,7 @@
         </WrapPanel>
         <StackPanel Grid.Row="5" Margin="10,10">
             <TextBlock Text="Highlight Background:" Margin="0 2"/>
-            <ComboBox x:Name="cbBackground" SelectedValuePath="Name" SelectedIndex="9" Width="200" HorizontalAlignment="Left" SelectedValue="{Binding ElementName=HighlightTextBlock1, Path=HighlightBackground, UpdateSourceTrigger=PropertyChanged}" 
-                      ItemsSource="{Binding Source={StaticResource colorProperties}}">
+            <ComboBox x:Name="cbBackground" SelectedValuePath="Name" SelectedIndex="9" Width="200" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource colorProperties}}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -103,8 +102,7 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
                     <TextBlock Text="Highlight Foreground:" Margin="0 2"/>
-                    <ComboBox x:Name="cbForeground" SelectedValuePath="Name" SelectedIndex="4" Width="200" HorizontalAlignment="Left" SelectedValue="{Binding ElementName=HighlightTextBlock1, Path=HighlightForeground, UpdateSourceTrigger=PropertyChanged}" 
-                              ItemsSource="{Binding Source={StaticResource colorProperties}}">
+                    <ComboBox x:Name="cbForeground" SelectedValuePath="Name" SelectedIndex="4" Width="200" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource colorProperties}}" >
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -117,8 +115,7 @@
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <TextBlock Text="Highlight FontWeight:" Margin="0 2"/>
-                    <ComboBox x:Name="cbFontWeight" SelectedValuePath="Name" SelectedIndex="0" Width="130" HorizontalAlignment="Left" SelectedValue="{Binding ElementName=HighlightTextBlock1, Path=HighlightFontWeight, UpdateSourceTrigger=PropertyChanged}" 
-                              ItemsSource="{Binding Source={StaticResource fontWeightProperties}}">
+                    <ComboBox x:Name="cbFontWeight" SelectedValuePath="Name" SelectedIndex="0" Width="130" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource fontWeightProperties}}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock x:Name="tbFontWeight" Text="{Binding Name}" Margin="2" FontWeight="{Binding Name}"/>
