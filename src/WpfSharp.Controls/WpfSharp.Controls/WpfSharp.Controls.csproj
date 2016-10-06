@@ -46,13 +46,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\SearchableTextBlock.cs" />
+    <Compile Include="Controls\SpinningImage.xaml.cs">
+      <DependentUpon>SpinningImage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\StringToWordsConverter.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Converters\RegOptionsSetConverter.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Controls\SpinningImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{2B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchableTextBlockExample", "Examples\SearchableTextBlockExample\SearchableTextBlockExample.csproj", "{EF6FBCA6-C9B5-47AB-8A8C-D872F3B851D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinningImageExample", "Examples\SpinningImageExample\SpinningImageExample.csproj", "{583DEC5E-6292-4823-A107-1C80397D1E0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +25,16 @@ Global
 		{EF6FBCA6-C9B5-47AB-8A8C-D872F3B851D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF6FBCA6-C9B5-47AB-8A8C-D872F3B851D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF6FBCA6-C9B5-47AB-8A8C-D872F3B851D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583DEC5E-6292-4823-A107-1C80397D1E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583DEC5E-6292-4823-A107-1C80397D1E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583DEC5E-6292-4823-A107-1C80397D1E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583DEC5E-6292-4823-A107-1C80397D1E0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EF6FBCA6-C9B5-47AB-8A8C-D872F3B851D1} = {2BC72E6D-C935-4D71-89B8-B1100D5AE7C6}
+		{583DEC5E-6292-4823-A107-1C80397D1E0D} = {2BC72E6D-C935-4D71-89B8-B1100D5AE7C6}
 	EndGlobalSection
 EndGlobal
