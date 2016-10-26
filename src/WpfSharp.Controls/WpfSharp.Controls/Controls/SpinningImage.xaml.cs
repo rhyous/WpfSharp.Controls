@@ -16,8 +16,7 @@ namespace WpfSharp.Controls
         public Storyboard Spinner
         {
             get { return _Spinner ?? (_Spinner = (Storyboard)FindResource("Spin360")); }
-        }
-        private Storyboard _Spinner;
+        } private Storyboard _Spinner;
 
         public bool SpinnerState
         {
