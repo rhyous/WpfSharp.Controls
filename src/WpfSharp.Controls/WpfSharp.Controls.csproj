@@ -55,6 +55,7 @@
     <Compile Include="Controls\DigitBox.cs" />
     <Compile Include="Converters\StringToWordsConverter.cs" />
     <Compile Include="Converters\TrimConverter.cs" />
+    <Compile Include="Converters\ValueEqualsParameterConverter.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
