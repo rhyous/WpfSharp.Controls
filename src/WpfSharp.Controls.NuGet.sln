@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfSharp.Controls", "WpfSharp.Controls\WpfSharp.Controls.csproj", "{FA68E771-F804-4579-9F8D-BFEC6C700622}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{2BC72E6D-C935-4D71-89B8-B1100D5AE7C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchableTextBlockExample", "Examples\SearchableTextBlockExample\SearchableTextBlockExample.csproj", "{EF6FBCA6-C9B5-47AB-8A8C-D872F3B851D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinningImageExample", "Examples\SpinningImageExample\SpinningImageExample.csproj", "{583DEC5E-6292-4823-A107-1C80397D1E0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitBoxExample", "Examples\DigitBoxExample\DigitBoxExample.csproj", "{FA547697-4BE0-4E1B-AD4A-501ECA2ACF51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{464C9E27-AEF9-46C3-B302-E4B9FCF9FB8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfSharp.Controls.NuGet", "NuGet\WpfSharp.Controls.NuGet\WpfSharp.Controls.NuGet.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA68E771-F804-4579-9F8D-BFEC6C700622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA68E771-F804-4579-9F8D-BFEC6C700622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA68E771-F804-4579-9F8D-BFEC6C700622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA68E771-F804-4579-9F8D-BFEC6C700622}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF6FBCA6-C9B5-47AB-8A8C-D872F3B851D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF6FBCA6-C9B5-47AB-8A8C-D872F3B851D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF6FBCA6-C9B5-47AB-8A8C-D872F3B851D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF6FBCA6-C9B5-47AB-8A8C-D872F3B851D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583DEC5E-6292-4823-A107-1C80397D1E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583DEC5E-6292-4823-A107-1C80397D1E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583DEC5E-6292-4823-A107-1C80397D1E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583DEC5E-6292-4823-A107-1C80397D1E0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA547697-4BE0-4E1B-AD4A-501ECA2ACF51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA547697-4BE0-4E1B-AD4A-501ECA2ACF51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA547697-4BE0-4E1B-AD4A-501ECA2ACF51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA547697-4BE0-4E1B-AD4A-501ECA2ACF51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EF6FBCA6-C9B5-47AB-8A8C-D872F3B851D1} = {2BC72E6D-C935-4D71-89B8-B1100D5AE7C6}
+		{583DEC5E-6292-4823-A107-1C80397D1E0D} = {2BC72E6D-C935-4D71-89B8-B1100D5AE7C6}
+		{FA547697-4BE0-4E1B-AD4A-501ECA2ACF51} = {2BC72E6D-C935-4D71-89B8-B1100D5AE7C6}
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389} = {464C9E27-AEF9-46C3-B302-E4B9FCF9FB8A}
+	EndGlobalSection
+EndGlobal
